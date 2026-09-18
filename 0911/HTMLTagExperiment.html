@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="kr"> <!--문서의 언어를 설명하는 줄-->
+    <head>
+        <meta charset="UTF-8"> <!--문서의 인코딩 설정. 인코딩을 UTF-8로 지정하여 한글 깨짐을 방지합니다.-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--뷰포트 설정. 모바일 등 다양한 기기 화면 크기에 맞게 페이지 배율과 너비를 조절합니다.-->
+        <title>0911 태그연습</title> <!--문서의 제목을 설정. 브라우저 탭에 표시됩니다.-->
+    </head>
+    <body>
+        <h1>HELLO, HORANG!</h1>
+        <h2>Hello, Horang!</h2>
+        <p>자인아가씨 <em>추석 기차표</em>티켓팅 기원 1일차</p>
+        <hr> <!--가로줄 태그-->
+        <cite> cite는 고유명사, 미술 작품, 책 제목 등 창작물의 제목을 표시할 때 주로 사용하는 태그입니다.</cite>
+        <hr>
+        <q> q는 인용문을 표시할 때 주로 사용하는 태그입니다.</q>
+        <hr>
+        <figcaption> figcaption는 이미지나 표 등 시각 자료 아래에 부연 설명이나 제목을 붙일 때 사용하는 태그입니다.</figcaption>
+        <hr>
+        <ruby> ruby는 일본어 발음 기호를 표시할 때 사용하는 태그입니다.</ruby>
+        <hr>
+        <small> small는 작은 글자를 표시할 때 사용하는 태그입니다.</small>
+        <hr>
+        <strong> strong는 강조할 때 사용하는 태그입니다.</strong>
+        <hr>
+        <sub> sub는 아래첨자를 표시할 때 사용하는 태그입니다.</sub>
+        <hr>
+        <section>
+            <ins>
+             <p>
+              This is a paragraph that was inserted.
+             </p>
+             This is another paragraph whose first sentence was inserted
+             at the same time as the paragraph above.
+            </ins>
+            This is a second sentence, which was there all along.
+           </section>
+           <section>
+            <p>This is the first paragraph. <del>This sentence was
+            deleted.</del></p>
+            <p><del>This sentence was deleted too.</del> That
+            sentence needed a separate &lt;del&gt; element.</p>
+           </section>
+        <hr>
+        <time>2011-11-18</time>
+        <hr>
+        <header>
+            <h1><a href="/">My fancy blog</a></h1>
+            ...
+            <search>
+              <form action="search.php">
+                <label for="query">Find an article</label>
+                <input id="query" name="q" type="search">
+                <button type="submit">Go!</button>
+              </form>
+            </search>
+          </header>
+        <hr>
+        <textarea placeholder="Dear Francine,
+
+They closed the parks this week, so we won't be able to
+meet your there. Should we just have dinner?
+
+Love,
+Daddy"></textarea>
+        <hr>
+        <details>
+            <summary>안녕</summary>
+            details는 세부 내용을 표시할 때 사용하는 태그입니다.
+        </details>
+        <details>
+            <summary>하세요</summary>
+            details는 세부 내용을 표시할 때 사용하는 태그입니다2222
+        </details>
+        <details>
+            <summary><label for=fn>Name & Extension:</label></summary>
+            <p><input type=text id=fn name=fn value="Pillar Magazine.pdf">
+            <p><label><input type=checkbox name=ext checked> Hide extension</label>
+           </details>
+        <section class="progress window">
+            <h1>Copying "Really Achieving Your Childhood Dreams"</h1>
+            <details>
+             <summary>Copying... <progress max="375505392" value="97543282"></progress> 25%</summary>
+             <dl>
+              <dt>Transfer rate:</dt> <dd>452KB/s</dd>
+              <dt>Local filename:</dt> <dd>/home/rpausch/raycd.m4v</dd>
+              <dt>Remote filename:</dt> <dd>/var/www/lectures/raycd.m4v</dd>
+              <dt>Duration:</dt> <dd>01:16:27</dd>
+              <dt>Color profile:</dt> <dd>SD (6-1-6)</dd>
+              <dt>Dimensions:</dt> <dd>320×240</dd>
+             </dl>
+            </details>
+        </section>
+        <hr>
+        <dialog id="myModal">
+            <p>반갑읍니다요.</p>
+            <button onclick="document.getElementById('myModal').close()">닫기</button>
+        </dialog>
+        <button onclick="document.getElementById('myModal').showModal()">모달 열기</button>
+      
+        <hr>
+        <p><abbr title="World Health Organization">WHO</abbr>는 보건 분야의 국제 연합 전문 기구입니다.</p>  
+        <hr>
+        <p>So then she pointed at the tiger and screamed
+            "there<wbr>is<wbr>no<wbr>way<wbr>you<wbr>are<wbr>ever<wbr>going<wbr>to<wbr>catch<wbr>me"!</p>
+        <hr>
+        <p>Look around and you will find, no-one's really
+        <mark>colour</mark> blind.</p>
+        <hr>
+        <form>
+            <p><label><input type="radio" name="dog-type" value="pupper" required disabled> Pupper</label>
+            <p><label><input type="radio" name="dog-type" value="doggo"> Doggo</label>
+            <p><button>Make your choice</button>
+           </form>
+        <hr>
+        <p><label> Topic: <input name=topic> <a href="help/topic.html" rel="help">(Help)</a></label></p>
+        <form action="/find.cgi" method=get>
+            <input type=text name=t>
+            <input type=search name=q>
+            <input type=submit>
+        </form>
+    </body>
+</html>
