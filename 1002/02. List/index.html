@@ -15,7 +15,7 @@
 </head>
 <body>
     <header>
-        <h1>1001 Foods<br>You Must Taste<br>Before You Die</h1>
+        <h1>1001 Foods<br>You Must Taste<br>Before You Die<br><br><span id="total"></span></h1>
     </header>
     <nav>
         <ul>
@@ -1070,5 +1070,22 @@
             </ul>
         </article>
     </section>
+    <script>
+        // 각 분류의 체크 비율을 네비게이션 항목 우측에 표시
+        const update = () => document.querySelectorAll("nav a").forEach(a => {
+            const boxes = document.querySelectorAll(a.getAttribute("href") + " input");
+            const done = [...boxes].filter(b => b.checked).length;
+            a.nextElementSibling.textContent = Math.round(done / boxes.length * 100) + "%";
+        });
+        document.querySelectorAll("nav a").forEach(a => a.after(document.createElement("span")));
+        const updateTotal = () => {
+            const boxes = document.querySelectorAll("section input");
+            const done = [...boxes].filter(b => b.checked).length;
+            document.getElementById("total").textContent = Math.round(done / boxes.length * 100) + "%";
+        };
+        document.addEventListener("change", () => { update(); updateTotal(); });
+        updateTotal();
+        update();
+    </script>
 </body>
 </html>

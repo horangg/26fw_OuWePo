@@ -12,7 +12,6 @@ body{ /* 문서 본문 */
     display: flex; /* 자식(header, nav, section)을 가로로 나란히 배치 */
     padding-top: 40px; /* 고정된 제목(h1) 높이만큼 위쪽을 비워 겹침 방지 */
 }
-
 /* ===== 제목 ===== */
 h1{ /* 페이지 제목 */
     position: fixed; /* 스크롤해도 화면에 고정 */
@@ -96,4 +95,25 @@ section input[type="checkbox"]::before{ /* 체크 전 모양 */
 }
 section input[type="checkbox"]:checked::before{ /* 체크 후 모양 */
     content: "[●]"; /* 가운데에 검은 점 */
+}
+
+/* 네비게이션 항목 우측 체크 퍼센트 */
+nav li::after{ /* float 된 퍼센트가 li 높이에 포함되도록 */
+    content: "";
+    display: block;
+    clear: both;
+}
+nav span{
+    float: right; /* 네비게이션 우측 끝에 정렬 */
+    font-size: 0.8em;
+    color: black;
+}
+
+/* 제목 밑 전체 체크 퍼센트 */
+#total{
+   }
+
+/* 항목 텍스트(label)에도 손가락 모양 */
+article li label{
+    cursor: pointer;
 }
