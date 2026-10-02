@@ -1,0 +1,73 @@
+section {
+    background-color: #0044ff;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+.Monitor {
+    width: 480px;
+    height: 270px;
+    padding: 10px;
+    margin: 10px;
+    top: 60px;
+    left: 100px;
+}
+.MacBook {
+    width: 240px;
+    height: 145px;
+    padding: 10px;
+    margin: 10px;
+    top: 100px;
+    left: 615px;
+}
+.iPad {
+    width: 175px;
+    height: 120px;
+    padding: 10px;
+    margin: 10px;
+    top: 280px;
+    left: 650px;
+}
+.Trackpad{
+    width: 100px;
+    height: 65px;
+    padding: 10px;
+    margin: 10px;
+    top: 550px;
+    left: 510px;
+}
+.Keyboard{
+    width: 250px;
+    height: 65px;
+    padding: 10px;
+    margin: 10px;
+    top: 550px;
+    left: 230px;
+}
+.Book1 {
+    width: 150px;
+    height: 5px;
+    padding: 10px;
+    margin: 10px;
+    top: 435px;
+    left: 665px;
+}
+.Book2{
+    width: 170px;
+    height: 10px;
+    padding: 10px;
+    margin: 10px;
+    top: 465px;
+    left: 655px;
+}
+.Book3{
+    width: 5px;
+    height: 150px;
+    padding: 10px;
+    margin: 10px;
+    top: 435px;
+    left: 100px;
+}
