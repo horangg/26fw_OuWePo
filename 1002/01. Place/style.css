@@ -1,12 +1,27 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 section {
-    background-color: #0044ff;
-    color: #ffffff;
-    border: 1px solid #ffffff;
+    position: relative;
+    width: 1082px;
+    height: 717px;
+}
+
+article {
+    background-color: #f1f1f1;
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
     text-align: center;
+    font-family: "Coral Pixels", serif;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 100%; 
 }
 .Monitor {
     width: 480px;
@@ -74,28 +89,28 @@ section {
     left: 615px;
 }
 .Book3{
-    width: 5px;
-    height: 90px;
+    width: 15px;
+    height: 85px;
     padding: 10px;
     margin: 10px;
-    top: 380px;
+    top: 385px;
     left: 40px;
 }
 .Book4{
-    width: 20px;
+    width: 5px;
     height: 100px;
     padding: 10px;
     margin: 10px;
     top: 370px;
-    left: 75px;
+    left: 85px;
 }
 .Book5{
-    width: 10px;
+    width: 15px;
     height: 100px;
     padding: 10px;
     margin: 10px;
     top: 370px;
-    left: 125px;
+    left: 120px;
 }
 .Box1{
     width: 160px;
@@ -111,7 +126,7 @@ section {
     padding: 10px;
     margin: 10px;
     top: 395px;
-    left: 260px;
+    left: 240px;
 }
 .Box3{
     width: 30px;
@@ -119,13 +134,13 @@ section {
     padding: 10px;
     margin: 10px;
     top: 415px;
-    left: 200px;
+    left: 180px;
 }
 .Box4{
-    width: 80px;
-    height: 30px;
+    width: 100px;
+    height: 20px;
     padding: 10px;
     margin: 10px;
-    top: 445px;
-    left: 450px;
+    top: 455px;
+    left: 430px;
 }
