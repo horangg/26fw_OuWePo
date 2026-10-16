@@ -5,17 +5,17 @@
 }
 html{ /* 문서 전체 */
     scroll-behavior: smooth; /* 링크 이동 시 부드럽게 스크롤 */
-    scroll-padding-top: 40px; /* 링크 이동 시 고정된 제목줄에 가리지 않도록 위쪽 여유 */
+    scroll-padding-top: 90px; /* 링크 이동 시 고정된 제목줄에 가리지 않도록 위쪽 여유 */
 }
 body{ /* 문서 본문 */
     background-color: rgb(255, 213, 0); /* 배경색 */
     display: flex; /* 자식(header, nav, section)을 가로로 나란히 배치 */
-    padding-top: 40px; /* 고정된 제목(h1) 높이만큼 위쪽을 비워 겹침 방지 */
+    padding-top: 90px; /* 이전 버튼(50px) + 고정된 제목(h1) 높이만큼 위쪽을 비워 겹침 방지 */
 }
 /* ===== 제목 ===== */
 h1{ /* 페이지 제목 */
     position: fixed; /* 스크롤해도 화면에 고정 */
-    top: 0; /* 화면 맨 위에 붙임 */
+    top: 50px; /* 이전 버튼 아래에 붙임 */
     left: 0; /* 화면 왼쪽 끝에 붙임 */
     width: 100%; /* 가로 전체 너비 */
     height: 40px; /* 제목줄 높이 */
