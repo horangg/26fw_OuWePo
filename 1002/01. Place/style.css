@@ -1,4 +1,5 @@
 body {
+    background-color: #136f6b;
     margin: 0;
     padding-top: 50px; /* 이전 버튼 자리 */
     box-sizing: border-box;
@@ -14,8 +15,8 @@ section {
 }
 
 article {
-    background-color: #0b0b0b;
-    color: white;
+    background-color: #f4a8bc;
+    color: #136f6b;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -152,7 +153,7 @@ article {
 article:hover { font-size: 0; }
 .art {
     visibility: hidden; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); margin: 0;
-    white-space: pre; text-align: left; color: white;
+    white-space: pre; text-align: left; color: #136f6b;
     font: 12px/1.1 monospace;
 }
 article:hover .art { visibility: visible; }
