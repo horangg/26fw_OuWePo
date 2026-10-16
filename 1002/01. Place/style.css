@@ -145,3 +145,12 @@ article {
     top: 455px;
     left: 430px;
 }
+
+/* hover: 글자 대신 ASCII 아트 (박스보다 작은 아트만 사용) */
+article:hover { font-size: 0; }
+.art {
+    visibility: hidden; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); margin: 0;
+    white-space: pre; text-align: left; color: white;
+    font: 12px/1.1 monospace;
+}
+article:hover .art { visibility: visible; }
