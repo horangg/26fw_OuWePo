@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Coral+Pixels&display=swap" rel="stylesheet">
 </head>
 <body>
+<a href="../../index.html" style="position:fixed;top:12px;left:12px;z-index:9999;padding:6px 12px;border:1px solid #000;background:#fff;color:#000;font:14px sans-serif;text-decoration:none">←</a>
     <section>
         <article class="Monitor">Monitor</article>
         <article class="MacBook">MacBook</article>
@@ -27,5 +28,61 @@
         <article class="Box3">Box<br>3</article>
         <article class="Box4">Box4</article>
     </section>
+
+    <script>
+        // article 순서와 같은 순서: 박스 모양에 맞춰 고른 동물 15마리
+        const arts = [
+String.raw`  /\_/\
+ ( o.o )
+  > ^ <`,
+String.raw`  __
+o-''|\_____/)
+ \_/|_)     )
+    \  __  /
+    (_/ (_/`,
+String.raw` ,-.___,-.
+ \_/_ _\_/
+   )O_O(
+  { (_) }
+   '-^-'`,
+String.raw`/\___/\
+\ o o /
+ >\v/<`,
+String.raw`(\_/)
+(o.o)
+(> <)`,
+String.raw`<:3 )~~~~`,
+String.raw`><(((('>`,
+String.raw`_/\_/\_/\_/~@`,
+String.raw`|\/|
+(oo)
+\==/`,
+String.raw`@.@
+(_)`,
+String.raw`.--.
+(oo)
+'--'`,
+String.raw`(\____/)
+( o  o )
+(  oo  )`,
+String.raw`  ^__^
+  (oo)\_______
+  (__)\       )\/\
+      ||----w |
+      ||     ||`,
+String.raw`  ,~.
+ (o>
+ //\
+ V_/_`,
+String.raw`<(o )___
+ ( ._> /`,
+        ];
+        document.querySelectorAll("article").forEach((box, i) => {
+            const pre = document.createElement("pre");
+            pre.className = "art";
+            pre.textContent = arts[i];
+            box.appendChild(pre);
+        });
+    </script>
 </body> 
 </html>
