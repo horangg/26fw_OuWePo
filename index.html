@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>26fw_OuWePo</title>
+<style>
+  html, body { margin: 0; height: 100%; overflow: hidden; background: #fff; }
+  a { position: absolute; left: 0; top: 0; padding: 20px 28px; border: 1px solid #000; color: #000; background: #fff; text-decoration: none; white-space: nowrap; }
+</style>
+</head>
+<body>
+<a href="0918/How%20many%20tags%20can%20be%20used.html">How many tags can be used</a>
+<a href="1002/01.%20Place/index.html">Place</a>
+<a href="1002/02.%20List/index.html">List</a>
+<script>
+  const boxes = [...document.querySelectorAll('a')].map(el => ({
+    el,
+    x: Math.random() * (innerWidth - el.offsetWidth),
+    y: Math.random() * (innerHeight - el.offsetHeight),
+    vx: (Math.random() < .5 ? -1 : 1) * (0.3 + Math.random() * 0.5),
+    vy: (Math.random() < .5 ? -1 : 1) * (0.3 + Math.random() * 0.5),
+  }));
+  (function tick() {
+    for (const b of boxes) {
+      const maxX = innerWidth - b.el.offsetWidth, maxY = innerHeight - b.el.offsetHeight;
+      if (!b.el.matches(":hover")) { b.x += b.vx; b.y += b.vy; }
+      if (b.x < 0 || b.x > maxX) { b.vx *= -1; b.x = Math.min(Math.max(b.x, 0), maxX); }
+      if (b.y < 0 || b.y > maxY) { b.vy *= -1; b.y = Math.min(Math.max(b.y, 0), maxY); }
+      b.el.style.transform = `translate(${b.x}px,${b.y}px)`;
+    }
+    requestAnimationFrame(tick);
+  })();
+</script>
+</body>
+</html>
