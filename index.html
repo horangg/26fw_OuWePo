@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>호랑의 잡재웹사이트작업실</title>
 <style>
-  html, body { margin: 0; height: 100%; overflow: hidden; background: #fff; }
+  html, body { margin: 0; height: 100%; overflow: hidden; background: #cf9a17; }
   a { position: absolute; left: 0; top: 0; padding: 20px 28px; border: 1px solid #000; color: #000; background: #fff; text-decoration: none; white-space: nowrap; }
 </style>
 </head>
@@ -14,6 +14,7 @@
 <a href="1002/01.%20Place/index.html">장소 번역</a>
 <a href="1002/02.%20List/index.html">『죽기 전에 꼭 먹어야 할 세계 음식 재료 1001』</a>
 <script>
+  document.documentElement.style.background = `hsl(${Math.random() * 360} 80% 85%)`; // 새로고침마다 랜덤 파스텔 배경
   const boxes = [...document.querySelectorAll('a')].map(el => ({
     el,
     x: Math.random() * (innerWidth - el.offsetWidth),
