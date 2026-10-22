@@ -26,9 +26,17 @@
                 playerVars: { start: YT_START, end: YT_END, autoplay: 1, mute: 1, controls: 0, disablekb: 1, fs: 0, rel: 0, playsinline: 1, iv_load_policy: 3 },
                 events: {
                     onReady: e => { e.target.mute(); e.target.playVideo(); },
-                    onStateChange: e => { if (e.data === YT.PlayerState.ENDED) { yt.seekTo(YT_START); yt.playVideo(); } }
+                    onStateChange: e => { if (e.data === YT.PlayerState.ENDED) { yt.seekTo(YT_START); yt.playVideo(); } },
+                    onAutoplayBlocked: () => showNotice("자동재생이 막혀 있어요. 화면을 한 번 클릭하면 재생돼요."),
+                    onError: () => showNotice('영상을 불러오지 못했어요. <a href="https://www.youtube.com/watch?v=' + YT_ID + '&t=' + YT_START + 's" target="_blank" rel="noopener">YouTube에서 보기</a>')
                 }
             });
+            // 자동재생이 막힌 브라우저(저전력 모드 등)를 위해, 첫 클릭·터치에 재생을 다시 시도한다
+            ["pointerdown", "keydown"].forEach(ev => addEventListener(ev, () => yt.playVideo(), { once: true }));
+        }
+        function showNotice(html) {
+            document.querySelector(".notice")?.remove();
+            document.body.insertAdjacentHTML("beforeend", `<p class="notice">${html}</p>`);
         }
     </script>
 </body>
