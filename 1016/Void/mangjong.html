@@ -7,13 +7,37 @@
     <link rel="stylesheet" href="mangjong.css">
 </head>
 <body>
-    <!-- 이미지는 .gallery 안에 <img>를 추가하면 위에서 아래로 이어짐 -->
-    <main class="gallery">
+    <!-- 이미지는 .track 안에 <img>를 추가하면 왼쪽에서 오른쪽으로 이어지며 계속 반복됨 -->
+    <div class="track">
         <img src="Img/web/IMG_2231.jpg" alt="">
         <img src="Img/web/IMG_2236.jpg" alt="">
         <img src="Img/web/IMG_2025.jpg" alt="">
         <img src="Img/web/IMG_2027.jpg" alt="">
-    </main>
+    </div>
     <button class="backbtn" onclick="location.href='index.html'" aria-label="뒤로 가기"><img src="Img/backbtn.png"></button>
+    <script>
+        const track = document.querySelector(".track");
+        const originals = [...track.children];
+        const SPEED = 60;          // 자동으로 흐르는 속도 (px/초)
+        let x = 0, setW = 0, last = performance.now();
+
+        // 이미지가 모두 불러와지면 한 세트의 너비를 재고, 화면을 덮을 만큼 복제해서 이어 붙인다
+        Promise.all(originals.map(i => i.decode().catch(() => {}))).then(() => {
+            setW = originals.reduce((w, i) => w + i.getBoundingClientRect().width, 0);
+            const copies = Math.ceil(innerWidth / setW) + 1;
+            for (let c = 0; c < copies; c++) track.append(...originals.map(i => i.cloneNode()));
+        });
+
+        addEventListener("wheel", e => { x += (e.deltaY || e.deltaX); }, { passive: true });
+        (function tick(now) {
+            if (setW) {
+                x += SPEED * (now - last) / 1000;
+                x = ((x % setW) + setW) % setW;
+                track.style.transform = `translateX(${-x}px)`;
+            }
+            last = now;
+            requestAnimationFrame(tick);
+        })(last);
+    </script>
 </body>
 </html>

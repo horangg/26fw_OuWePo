@@ -4,19 +4,24 @@ body {
     background: #000;
 }
 
-/* ---------- 세로 스크롤 갤러리 ---------- */
-.gallery {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4vh;
-    padding: 4vh 0;
+/* ---------- 가로 무한 스크롤 ---------- */
+body {
+    overflow: hidden;
 }
 
-.gallery img {
+.track {
+    display: flex;
+    width: max-content;
+    height: 100vh;
+    will-change: transform;
+}
+
+/* 이미지는 화면 높이에 맞추고, 사이 간격 없이 이어 붙인다 */
+.track img {
     display: block;
-    width: min(100%, 800px);
-    height: auto;
+    flex: none;
+    height: 100vh;
+    width: auto;
 }
 
 /* ---------- 뒤로 가기 버튼 ---------- */

@@ -1,4 +1,5 @@
 *.MP4
 *.mp4
 *.mov
+!1016/Void/Img/web/*.mp4
 .DS_Store
