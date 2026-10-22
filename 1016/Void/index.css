@@ -55,7 +55,7 @@ body {
 
 .soup {
     top: 20vh;
-    left: 20vw;
+    left: 35vw;
 }
 
 .patihcm {
@@ -64,7 +64,7 @@ body {
 }
 .mangjong {
     top: 70vh;
-    left: 25vw;
+    left: 15vw;
 }
 
 /* ---------- 플로팅 (값은 index.html 스크립트가 개체마다 랜덤으로 지정) ---------- */
