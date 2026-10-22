@@ -39,14 +39,16 @@ body {
 
 /* ---------- 링크 이미지 ---------- */
 .soup,
-.patihcm {
+.patihcm,
+.mangjong {
     z-index: 2;
     position: absolute;
     width: 15vw;
 }
 
 .soup img,
-.patihcm img {
+.patihcm img,
+.mangjong img {
     display: block;
     width: 100%;
 }
@@ -59,6 +61,10 @@ body {
 .patihcm {
     top: 55vh;
     left: 60vw;
+}
+.mangjong {
+    top: 70vh;
+    left: 25vw;
 }
 
 /* ---------- 플로팅 (값은 index.html 스크립트가 개체마다 랜덤으로 지정) ---------- */
