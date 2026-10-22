@@ -3,10 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>실종</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Mush Room Project</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <img src="Img/Cranberry bean.jpg">
+    <img class="background" src="Img/Cranberry bean_bitmap.png">
+    <a class="soup floating" href="kkeoi.html"><img src="Img/soup.png"></a>
+    <a class="patihcm floating" href="26patihomecoming.html"><img src="Img/mush.png"></a>
+    <script>
+        const r = (a, b) => a + Math.random() * (b - a);
+        document.querySelectorAll(".floating").forEach(el => {
+            const s = el.style;
+            s.setProperty("--r", r(0.5, 2) + "vw");
+            s.setProperty("--dir", Math.random() < 0.5 ? 1 : -1);
+            s.setProperty("--sway", r(2, 10) + "deg");
+            s.animationDuration = r(4, 9) + "s, " + r(3, 7) + "s";
+            s.animationDelay = -r(0, 9) + "s, " + -r(0, 7) + "s";
+        });
+    </script>
 </body>
 </html>

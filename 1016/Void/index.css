@@ -1,0 +1,52 @@
+/* ---------- 기본 ---------- */
+body {
+    margin: 0;
+    background: #000;
+}
+
+.background {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* ---------- 링크 이미지 ---------- */
+.soup,
+.patihcm {
+    position: absolute;
+    width: 15vw;
+}
+
+.soup img,
+.patihcm img {
+    display: block;
+    width: 100%;
+}
+
+.soup {
+    top: 20vh;
+    left: 20vw;
+}
+
+.patihcm {
+    top: 40vh;
+    left: 60vw;
+}
+
+/* ---------- 플로팅 (값은 index.html 스크립트가 개체마다 랜덤으로 지정) ---------- */
+.floating {
+    animation: float 6s linear infinite, sway 5s ease-in-out infinite;
+}
+
+@keyframes float {
+    from { transform: rotate(0deg) translateX(var(--r, 1vw)) rotate(0deg); }
+    to   { transform: rotate(calc(360deg * var(--dir, 1))) translateX(var(--r, 1vw)) rotate(calc(-360deg * var(--dir, 1))); }
+}
+
+@keyframes sway {
+    0%, 100% { rotate: calc(var(--sway, 2deg) * -1); }
+    50%      { rotate: var(--sway, 2deg); }
+}

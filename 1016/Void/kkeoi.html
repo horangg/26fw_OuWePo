@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mush Room Project/kkeoi</title>
+    <link rel="stylesheet" href="kkeoi.css">
+</head>
+<body>
+    <div class="scroll">
+        <!-- 스크롤할 이미지/영상은 .track 안에 <img> 또는 <video>만 추가하면 됨 (위에서 아래 순서로 이어지며 계속 반복됨) -->
+        <div class="track">
+            <img src="Img/261018-비지-켜켜이-호랑-25.jpg">
+            <img src="Img/261018-비지-켜켜이-호랑-11.jpg">
+            <video src="Img/20261018_RYU1274.MP4" preload="none" muted loop playsinline></video>
+            <img src="Img/261018-비지-켜켜이-호랑-13.jpg">
+            <img src="Img/261018-비지-켜켜이-호랑-15.jpg">
+            <video src="Img/20261018_RYU1270.MP4" preload="none" muted loop playsinline></video>
+            <img src="Img/261018-비지-켜켜이-호랑-16.jpg">
+            <img src="Img/261018-비지-켜켜이-호랑-20.jpg">
+            <video src="Img/20261018_RYU1231.MP4" preload="none" muted loop playsinline></video>
+            <video src="Img/20261018_RYU1257.MP4" preload="none" muted loop playsinline></video>
+            <img src="Img/261018-비지-켜켜이-호랑-3.jpg">
+            <img src="Img/261018-비지-켜켜이-호랑-37.jpg">
+            <img src="Img/261018-비지-켜켜이-호랑-39.jpg">
+            <video src="Img/20261018_RYU1274.MP4" preload="none" muted loop playsinline></video>
+            <img src="Img/261018-비지-켜켜이-호랑-4.jpg">
+            <img src="Img/261018-비지-켜켜이-호랑-40.jpg">
+            <video src="Img/영상 RYU1233 2026년 10월 18일.MP4" preload="none" muted loop playsinline></video>
+        </div>
+    </div>
+    <div class="stage">
+        <div class="menu">
+            <img class="front" src="Img/IMG_3186.png">
+            <img class="back" src="Img/IMG_3187.png">
+        </div>
+    </div>
+    <button class="backbtn" onclick="location.href='index.html'" aria-label="뒤로 가기"><img src="Img/backbtn.png"></button>
+    <script>
+        const items = [...document.querySelector(".track").children];
+        const n = items.length;
+
+        // t = 스크롤 위치(이미지 1장 = 1). 자동으로 흐르고, 휠로도 움직인다
+        const SEC_PER_IMAGE = 10;
+        const stride = () => innerHeight * 0.85;   // 이미지끼리 15vh씩 겹침
+        let t = 0, last = performance.now();
+        addEventListener("wheel", e => { t += e.deltaY / stride(); }, { passive: true });
+
+        function setPlaying(el, on) {              // 화면 밖 영상은 멈추고, 가까워지면 불러온다
+            if (el.tagName !== "VIDEO") return;
+            if (on && el.preload === "none") { el.preload = "auto"; el.load(); }
+            if (on && el.paused) el.play().catch(() => {});
+            else if (!on && !el.paused) el.pause();
+        }
+
+        (function tick(now) {
+            t += (now - last) / 1000 / SEC_PER_IMAGE;
+            last = now;
+            t = ((t % n) + n) % n;
+            items.forEach((el, i) => {
+                let d = ((i - t) % n + n) % n;     // 화면 위치(장 단위). 지나간 장은 위로 돌려 보내 순환시킴
+                if (d > n - 1) d -= n;
+                el.style.transform = `translateY(${d * stride()}px)`;
+                setPlaying(el, d > -1.2 && d < 1.2);
+            });
+            requestAnimationFrame(tick);
+        })(last);
+    </script>
+</body>
+</html>

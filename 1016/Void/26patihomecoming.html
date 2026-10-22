@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>26 PaTI Homecoming</title>
+    <link rel="stylesheet" href="26patihomecoming.css">
+</head>
+<body>
+    <div class="video"><div id="yt"></div></div>
+    <button class="backbtn" onclick="location.href='index.html'" aria-label="뒤로 가기"><img src="Img/backbtn.png"></button>
+    <script>
+        // file://로 열면 유튜브가 오류 153을 내므로 안내만 띄운다 (http 주소로 열어야 함)
+        if (location.protocol === "file:") {
+            document.body.insertAdjacentHTML("beforeend", '<p class="notice">유튜브는 웹 주소(http://…)로 열어야 재생돼요.<br>터미널에서 이 폴더로 이동해 <code>python3 -m http.server</code> 실행 후 <b>localhost:8000/26patihomecoming.html</b> 로 접속하세요.</p>');
+        }
+
+        // 유튜브: 2:00~3:56 구간만 음소거로 계속 반복
+        const YT_ID = "5agbo9NbZko", YT_START = 120, YT_END = 236;
+        const tag = document.createElement("script");
+        tag.src = "https://www.youtube.com/iframe_api";
+        document.head.append(tag);
+        function onYouTubeIframeAPIReady() {
+            const yt = new YT.Player("yt", {
+                videoId: YT_ID,
+                playerVars: { start: YT_START, end: YT_END, autoplay: 1, mute: 1, controls: 0, disablekb: 1, fs: 0, rel: 0, playsinline: 1, iv_load_policy: 3 },
+                events: {
+                    onReady: e => { e.target.mute(); e.target.playVideo(); },
+                    onStateChange: e => { if (e.data === YT.PlayerState.ENDED) { yt.seekTo(YT_START); yt.playVideo(); } }
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+/* ---------- 기본 ---------- */
+body {
+    margin: 0;
+    min-height: 100vh;
+    overflow: hidden;
+    background: #000;
+}
+
+/* ---------- 유튜브 영상 ---------- */
+/* 16:9 비율을 유지한 채 화면을 꽉 채운다 (넘치는 부분은 잘림) */
+.video {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+}
+
+.video iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    --w: max(100vw, 177.78vh);
+    --h: max(100vh, 56.25vw);
+    width: var(--w);
+    height: var(--h);
+    margin: calc(var(--h) / -2) 0 0 calc(var(--w) / -2);
+    border: 0;
+    pointer-events: none;
+}
+
+/* ---------- 뒤로 가기 버튼 ---------- */
+.backbtn {
+    position: fixed;
+    top: 3vh;
+    left: 3vw;
+    z-index: 10;
+    width: 5vw;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    animation: nudge 3s ease-in-out infinite alternate;
+}
+
+.backbtn img {
+    width: 100%;
+}
+
+@keyframes nudge {
+    from { transform: translateX(-0.6vw); }
+    to   { transform: translateX(0.6vw); }
+}
+
+/* ---------- file:// 로 열었을 때 안내 ---------- */
+.notice {
+    position: fixed;
+    left: 50%;
+    bottom: 5vh;
+    z-index: 20;
+    margin: 0;
+    padding: 1em 1.5em;
+    transform: translateX(-50%);
+    color: #fff;
+    background: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    line-height: 1.6;
+}

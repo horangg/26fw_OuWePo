@@ -1,0 +1,94 @@
+/* ---------- 기본 / 무대 ---------- */
+/* 1u = 무대 가로의 1%. 무대는 3:2 비율로 화면 안에 맞춰 커지고 줄어든다 */
+:root {
+    --u: min(1vw, 1.5vh);
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    background: #000;
+}
+
+.stage {
+    position: relative;
+    width: calc(var(--u) * 100);
+    aspect-ratio: 3 / 2;
+}
+
+/* ---------- 배경 스크롤 ---------- */
+.scroll {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    z-index: -1;
+}
+
+/* 이미지끼리 15vh씩 겹치고, 겹치는 위아래 가장자리를 투명하게 흐려서 경계를 섞는다 */
+.track img,
+.track video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    -webkit-mask-image: linear-gradient(transparent, #000 15%, #000 85%, transparent);
+    mask-image: linear-gradient(transparent, #000 15%, #000 85%, transparent);
+}
+
+/* ---------- 메뉴 (호버 시 뒤집힘) ---------- */
+.menu {
+    position: absolute;
+    top: 10%;
+    left: 80%;
+    width: 13.8%;
+    perspective: 1000px;
+}
+
+.menu img {
+    width: 100%;
+    transition: transform 0.6s;
+    backface-visibility: hidden;
+}
+
+.menu .back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotateY(180deg);
+}
+
+.menu:hover .front {
+    transform: rotateY(180deg);
+}
+
+.menu:hover .back {
+    transform: rotateY(360deg);
+}
+
+/* ---------- 뒤로 가기 버튼 ---------- */
+.backbtn {
+    position: fixed;
+    top: 3vh;
+    left: 3vw;
+    z-index: 10;
+    width: 5vw;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    animation: nudge 3s ease-in-out infinite alternate;
+}
+
+.backbtn img {
+    width: 100%;
+}
+
+@keyframes nudge {
+    from { transform: translateX(-0.6vw); }
+    to   { transform: translateX(0.6vw); }
+}
