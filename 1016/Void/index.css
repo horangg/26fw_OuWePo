@@ -13,9 +13,34 @@ body {
     z-index: -1;
 }
 
+/* ---------- 제목 ---------- */
+.title {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    gap: 0 0.1em;
+    padding: 0 5vw;
+    font-family: scatterplot-vf, sans-serif;
+    font-size: 8vw;
+    line-height: 1.1;
+    color: #fff;
+    pointer-events: none;
+}
+
+.title span {
+    display: inline-block;
+    font-variation-settings: "wght" var(--w, 600), "RAND" var(--rand, 0);
+}
+
 /* ---------- 링크 이미지 ---------- */
 .soup,
 .patihcm {
+    z-index: 2;
     position: absolute;
     width: 15vw;
 }
@@ -32,7 +57,7 @@ body {
 }
 
 .patihcm {
-    top: 40vh;
+    top: 55vh;
     left: 60vw;
 }
 

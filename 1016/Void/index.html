@@ -4,14 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mush Room Project</title>
+    <link rel="stylesheet" href="https://use.typekit.net/qjo4dgn.css">
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <img class="background" src="Img/Cranberry bean_bitmap.png">
+    <h1 class="title" aria-label="MushRoomProject">MushRoomProject</h1>
     <a class="soup floating" href="kkeoi.html"><img src="Img/soup.png"></a>
     <a class="patihcm floating" href="26patihomecoming.html"><img src="Img/mush.png"></a>
     <script>
         const r = (a, b) => a + Math.random() * (b - a);
+
+        // 제목: 글자마다 자리·기울기를 자유롭게 흩뜨리고, 글꼴의 RAND 축 값을 계속 바꾼다
+        const title = document.querySelector(".title");
+        const letters = [...title.textContent].map(ch => {
+            const s = document.createElement("span");
+            s.textContent = ch;
+            s.setAttribute("aria-hidden", "true");
+            s.style.setProperty("--w", Math.round(r(400, 600)));
+            s.style.translate = `${r(-1.2, 1.2)}vw ${r(-4, 4)}vh`;
+            s.style.rotate = `${r(-10, 10)}deg`;
+            // 글자마다 속도·시작점이 다른 두 개의 사인파를 겹쳐 끊김 없이 이어지는 값을 만든다
+            return { s, p1: r(0, 6.28), p2: r(0, 6.28), v1: r(0.3, 0.7), v2: r(0.8, 1.6) };
+        });
+        title.replaceChildren(...letters.map(l => l.s));
+        (function tick(now) {
+            letters.forEach(l => {
+                const v = 0.65 * Math.sin(l.p1 + now / 1000 * l.v1) + 0.35 * Math.sin(l.p2 + now / 1000 * l.v2);  // -1 ~ 1
+                l.s.style.setProperty("--rand", (500 + 500 * v).toFixed(1));  // 0 ~ 1000
+            });
+            requestAnimationFrame(tick);
+        })(performance.now());
+
         document.querySelectorAll(".floating").forEach(el => {
             const s = el.style;
             s.setProperty("--r", r(0.5, 2) + "vw");
