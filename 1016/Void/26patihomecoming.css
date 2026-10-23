@@ -12,6 +12,7 @@ body {
     position: fixed;
     inset: 0;
     overflow: hidden;
+    background: #000 center / cover no-repeat;   /* 불러오는 동안 썸네일(HTML에서 지정)을 보여준다 */
 }
 
 .video iframe {
@@ -25,6 +26,12 @@ body {
     margin: calc(var(--h) / -2) 0 0 calc(var(--w) / -2);
     border: 0;
     pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.6s;
+}
+
+.video.ready iframe {
+    opacity: 1;
 }
 
 /* ---------- 뒤로 가기 버튼 ---------- */
